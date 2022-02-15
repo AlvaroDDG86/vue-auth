@@ -19,7 +19,10 @@ const router = new Router({
     {
       path: '/dashboard',
       name: 'dashboard',
-      component: Dashboard
+      component: Dashboard,
+      meta: {
+        requiredAuth: true
+      }
     },
     {
       path: '/register',
@@ -32,6 +35,13 @@ const router = new Router({
       component: LoginUser
     }
   ]
+})
+
+router.beforeEach((to, from, next) => {
+  if (to.matched.some(route => route.meta.requiredAuth) && !localStorage.getItem('user')) {
+    next('/')
+  }
+  next()
 })
 
 export default router

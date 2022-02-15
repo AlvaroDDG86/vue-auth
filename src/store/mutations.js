@@ -8,8 +8,8 @@ export default {
     axios.defaults.headers.common['Authorization'] = `Bearer ${payload.token}`
   },
   'CLEAR_USER_DATA' (state) {
-    state.user = null
     // Avoid side effects when the app grow up
+    localStorage.removeItem('user')
     location.reload()
   }
 }
