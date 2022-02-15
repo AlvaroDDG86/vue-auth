@@ -9,6 +9,9 @@
     <router-link v-if="!loggedIn" to="/login" class="button">
       Login
     </router-link>
+    <button v-else class="logoutButton" @click="logout">
+      Logout
+    </button>
   </div>
 </template>
 
@@ -17,6 +20,11 @@ import { mapGetters } from 'vuex'
 export default {
   computed: {
     ...mapGetters(['loggedIn'])
+  },
+  methods: {
+    logout () {
+      this.$store.dispatch('logout')
+    }
   }
 }
 </script>
@@ -64,6 +72,7 @@ button,
 
 .logoutButton {
   cursor: pointer;
+  font-weight: bold;
 }
 
 .nav-welcome + button {
