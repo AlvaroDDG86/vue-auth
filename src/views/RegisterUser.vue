@@ -31,6 +31,7 @@ export default {
         password: this.password
       })
         .then(() => {
+          console.log('we are here')
           this.$router.push({ name: 'dashboard' })
         })
     }
