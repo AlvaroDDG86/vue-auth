@@ -6,5 +6,11 @@ export default {
       .then(({ data }) => {
         commit('SET_USER_DATA', data)
       })
+  },
+  login ({ commit }, payload) {
+    return axios.post('//localhost:3000/login', payload)
+      .then(({ data }) => {
+        commit('SET_USER_DATA', data)
+      })
   }
 }
