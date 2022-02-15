@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RegisterUser should match with snapshot 1`] = `
+<div>
+  <form><label for="email">Email: </label> <input id="email" name="email" type="text"> <label for="password">Password: </label> <input id="password" name="password" type="password"> <button name="button">
+      Login
+    </button></form>
+</div>
+`;

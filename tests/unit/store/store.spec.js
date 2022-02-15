@@ -45,6 +45,21 @@ describe('Actions', () => {
       token: 'xxxx'
     })
   })
+  it('login user', async () => {
+    const commit = jest.fn()
+    const email = 'uno@otro.es'
+    const password = 'password'
+
+    await actions.login({ commit }, { email, password })
+
+    expect(url).toBe('//localhost:3000/login')
+    expect(body).toEqual({ email, password })
+    expect(commit).toHaveBeenCalledWith('SET_USER_DATA', {
+      name: 'alice',
+      email: 'uno@otro.es',
+      token: 'xxxx'
+    })
+  })
 })
 
 describe('Mutations', () => {
