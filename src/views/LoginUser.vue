@@ -1,6 +1,7 @@
 <template>
   <div>
-    <form @submit.prevent="login">
+    <h1>Login</h1>
+    <form class="noauth" @submit.prevent="login">
       <label for="email">Email: </label>
       <input id="email" v-model="email" name="email" type="text">
       <label for="password">Password: </label>
@@ -9,6 +10,12 @@
         Login
       </button>
     </form>
+    <p>
+      Don't have an account?
+      <router-link to="/register">
+        Register
+      </router-link>
+    </p>
   </div>
 </template>
 
