@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <h1>Welcome to the App!</h1>
-    <p v-if="!this.$store.state.user">
+    <p v-if="!loggedIn">
       To use this app you should
       <router-link to="/login">
         Login
@@ -15,5 +15,11 @@
 </template>
 
 <script>
-export default {}
+import { mapGetters } from 'vuex'
+
+export default {
+  computed: {
+    ...mapGetters(['loggedIn'])
+  }
+}
 </script>

@@ -6,14 +6,19 @@
     <router-link to="/dashboard">
       Dashboard
     </router-link>
-    <router-link to="/login" class="button">
+    <router-link v-if="!loggedIn" to="/login" class="button">
       Login
     </router-link>
   </div>
 </template>
 
 <script>
-export default {}
+import { mapGetters } from 'vuex'
+export default {
+  computed: {
+    ...mapGetters(['loggedIn'])
+  }
+}
 </script>
 
 <style lang="scss" scoped>
