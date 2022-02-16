@@ -9,6 +9,9 @@
       <button name="button">
         Login
       </button>
+      <p v-if="error">
+        {{ error }}
+      </p>
     </form>
     <p>
       Don't have an account?
@@ -24,17 +27,22 @@ export default {
   data () {
     return {
       email: '',
-      password: ''
+      password: '',
+      error: ''
     }
   },
   methods: {
     login () {
+      this.error = ''
       this.$store.dispatch('login', {
         email: this.email,
         password: this.password
       })
         .then(() => {
           this.$router.push({ name: 'dashboard' })
+        })
+        .catch(error => {
+          this.error = error.response.data.error
         })
     }
   }

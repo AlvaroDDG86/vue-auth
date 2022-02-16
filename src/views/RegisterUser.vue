@@ -11,6 +11,13 @@
       <button name="button">
         Register
       </button>
+      <p v-if="error.length > 0">
+        <ul>
+          <li v-for="(err, index) in error" :key="index">
+            {{ err }}
+          </li>
+        </ul>
+      </p>
     </form>
     <p>
       Already have an account?
@@ -27,11 +34,13 @@ export default {
     return {
       name: '',
       email: '',
-      password: ''
+      password: '',
+      error: []
     }
   },
   methods: {
     register () {
+      this.error = []
       this.$store.dispatch('register', {
         name: this.name,
         email: this.email,
@@ -39,6 +48,9 @@ export default {
       })
         .then(() => {
           this.$router.push({ name: 'dashboard' })
+        })
+        .catch(error => {
+          this.error = error.response.data.errors
         })
     }
   }
