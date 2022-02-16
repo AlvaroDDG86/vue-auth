@@ -7,7 +7,8 @@
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
-    "start": "node server.js & vue-cli-service serve"
+    "start": "node server.js & vue-cli-service serve",
+    "cypress:open": "cypress open"
   },
   "dependencies": {
     "axios": "^0.18.1",
@@ -23,6 +24,8 @@
     "vuex": "^3.3.0"
   },
   "devDependencies": {
+    "@cypress/vue": "^3.1.1",
+    "@cypress/webpack-dev-server": "^1.8.1",
     "@vue/cli-plugin-babel": "^3.12.1",
     "@vue/cli-plugin-eslint": "^3.12.1",
     "@vue/cli-plugin-unit-jest": "~4.5.0",
@@ -30,7 +33,9 @@
     "@vue/eslint-config-prettier": "^4.0.1",
     "@vue/test-utils": "^1.0.3",
     "babel-eslint": "^10.1.0",
+    "cypress": "^9.5.0",
     "eslint": "^5.16.0",
+    "eslint-plugin-cypress": "^2.12.1",
     "eslint-plugin-node": "^8.0.1",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",

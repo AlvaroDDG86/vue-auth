@@ -5,7 +5,7 @@ module.exports = {
     node: true
   },
 
-  extends: ["plugin:vue/recommended", "standard"],
+  extends: ["plugin:vue/recommended", "standard", "plugin:@cypress/dev/general"],
 
   rules: {
     "no-console": process.env.NODE_ENV === "production" ? "error" : "off",
@@ -33,5 +33,9 @@ module.exports = {
         jest: true
       }
     }
-  ]
+  ], 
+  
+  plugins: [
+    "@cypress/dev"
+  ],
 };

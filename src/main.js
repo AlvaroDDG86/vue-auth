@@ -18,7 +18,6 @@ new Vue({
     axios.interceptors.response.use(
       response => response,
       error => {
-        debugger
         if (error.response.status === 401) {
           this.$store.dispatch('logout')
         }
